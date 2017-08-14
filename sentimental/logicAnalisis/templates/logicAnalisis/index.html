@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.teal-cyan.min.css" /> 
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<script>
+
+		function getData () {
+			var datos = document.getElementById("datos");
+			var jsonOb = JSON.stringify(datos.innerHTML);
+			console.log(jsonOb)
+		}
+
+	</script>
+</head>
+<body onload="getData()">
+	
+	<div id="datos" class="mdl-grid">
+		{{ datos }}
+		
+	
+	</div>
+
+	 
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TwitterSearsh</title>
+  <meta name="description" content="busqueda de twitts">
+  <meta name="viewport" content="width=device-width">
+  <meta name="keywords" content="">
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="appcontainer" style="position: absolute;height: 100%;width: 90%;top: 10%;left: 5%;">
+    <div class="row">
+      <div class="col s6 offset-s3" >
+        <h4>Query Detail</h4>
+        <h5>{{ query }}</h5>
+        <div class="card">
+          <div class="card-content">
+            <ul class="collection">
+              {% for comment in object_list %}
+
+              <li class="collection-item">
+                <span class="title">
+                {% if comment.polarity == 'NT' %}
+                  <i class="material-icons left" style="color:yellow">brightness_1</i>Neutro
+                {% endif %}
+                {% if comment.polarity == 'PO' %}
+                  <i class="material-icons left" style="color:green" >add_circle</i>Positivo
+                {% endif %}
+                {% if comment.polarity == 'NE' %}
+                  <i class="material-icons left" style="color:red" >remove_circle</i>Negativo
+                {% endif %}
+                </span>
+                <p>{{ comment.user }}<br>
+                {{ comment.text }}</p>
+             </li>
+
+             {% endfor %}
+           </ul>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+</body>
+</html>
